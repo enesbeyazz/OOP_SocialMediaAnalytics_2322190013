@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">Yeni Post Paylaş</div>
+            <div class="card-body">
+                <form action="/add_post" method="POST">
+                    
+                    <div class="mb-3">
+                        <label>Hangi Hesap?</label>
+                        <select name="account_id" class="form-select">
+                            {% for acc in accounts %}
+                            <option value="{{ acc.id }}">{{ acc.username }} - {{ acc.platform }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Platform</label>
+                        <input type="text" name="platform" class="form-control" value="Instagram">
+                    </div>
+
+                    <div class="mb-3">
+                        <label>Post Tipi</label>
+                        <select name="type" class="form-select" id="postType">
+                            <option value="text">Sadece Yazı</option>
+                            <option value="image">Resim</option>
+                            <option value="video">Video</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <label>İçerik (Metin)</label>
+                        <textarea name="content" class="form-control" rows="3" required></textarea>
+                    </div>
+
+                    <div class="mb-3" id="urlField" style="display:none;">
+                        <label>Medya URL (Resim/Video Linki)</label>
+                        <input type="text" name="image_url" class="form-control">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Paylaş</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Basit JS: Resim/Video seçilirse URL kutusunu göster
+    document.getElementById('postType').addEventListener('change', function() {
+        var field = document.getElementById('urlField');
+        if (this.value === 'text') {
+            field.style.display = 'none';
+        } else {
+            field.style.display = 'block';
+        }
+    });
+</script>
+{% endblock %}

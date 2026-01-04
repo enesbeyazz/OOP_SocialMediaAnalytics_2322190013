@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2 class="mb-4">📈 Analitik Raporu</h2>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-success text-white">Top 3 En Popüler Post</div>
+            <ul class="list-group list-group-flush">
+                {% for post in top_posts %}
+                <li class="list-group-item">
+                    <strong>Skor: {{ post.likes + post.comments + post.shares }}</strong><br>
+                    {{ post.content[:50] }}...
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card mb-4">
+            <div class="card-header bg-warning text-dark">Trend Olan Kelimeler</div>
+            <ul class="list-group list-group-flush">
+                {% for word, count in trends %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    #{{ word }}
+                    <span class="badge bg-secondary rounded-pill">{{ count }} kez</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-info text-white">Platform Dağılımı</div>
+    <div class="card-body">
+        <div class="row text-center">
+            {% for platform, data in stats.items() %}
+            <div class="col">
+                <h3>{{ platform }}</h3>
+                <p class="display-6">{{ data.count }}</p>
+                <small>Toplam Post</small>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header bg-dark text-white">Hesap Ekle</div>
+            <div class="card-body">
+                <form action="/add_account" method="POST">
+                    <div class="mb-2">
+                        <input type="text" name="username" class="form-control" placeholder="Kullanıcı Adı" required>
+                    </div>
+                    <div class="mb-2">
+                        <select name="platform" class="form-select">
+                            <option value="Instagram">Instagram</option>
+                            <option value="Twitter">Twitter</option>
+                            <option value="Facebook">Facebook</option>
+                        </select>
+                    </div>
+                    <div class="mb-2">
+                        <input type="number" name="followers" class="form-control" placeholder="Takipçi Sayısı" required>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Ekle</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="card-header">Kayıtlı Hesaplar</div>
+            <ul class="list-group list-group-flush">
+                {% for acc in accounts %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    {{ acc.username }} ({{ acc.platform }})
+                    <span class="badge bg-primary rounded-pill">{{ acc.followers_count }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <h3>Son Paylaşımlar</h3>
+        {% for post in posts %}
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <span class="badge bg-secondary">{{ post.platform }}</span>
+                    Account #{{ post.account_id }}
+                </h5>
+                <p class="card-text">{{ post.content }}</p>
+                
+                {% if post.type == 'ImagePost' %}
+                    <div class="alert alert-info p-1">📷 Resim İçeriği: {{ post.image_url }}</div>
+                {% elif post.type == 'VideoPost' %}
+                    <div class="alert alert-warning p-1">🎥 Video İçeriği ({{ post.duration }} sn)</div>
+                {% endif %}
+                
+                <hr>
+                <div class="d-flex justify-content-between">
+                    <span>❤️ {{ post.likes }} Beğeni</span>
+                    <a href="/like/{{ post.id }}" class="btn btn-outline-danger btn-sm">Beğen</a>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="alert alert-warning">Henüz hiç post paylaşılmadı.</div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
