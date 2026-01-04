@@ -275,4 +275,8 @@ Name: Enes Beyaz
 Student ID: 2322190013
 Program: Software Engineering (English)
 Course: Object Based Programming
+<<<<<<< HEAD
 Lecturer: Dr. Coşkun Şahin
+=======
+Lecturer: Dr. Coşkun Şahin
+>>>>>>> a7f12c5ec45ae37b5703ee7c43f3724505dd93b7
