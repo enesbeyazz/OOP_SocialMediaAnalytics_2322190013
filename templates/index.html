@@ -18,13 +18,14 @@
                         </select>
                     </div>
                     <div class="mb-2">
-                        <input type="number" name="followers" class="form-control" placeholder="Takipçi Sayısı" required>
+                        <input type="number" name="followers" class="form-control" placeholder="Takipçi Sayısı"
+                            required>
                     </div>
                     <button type="submit" class="btn btn-success w-100">Ekle</button>
                 </form>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-header">Kayıtlı Hesaplar</div>
             <ul class="list-group list-group-flush">
@@ -48,13 +49,15 @@
                     Account #{{ post.account_id }}
                 </h5>
                 <p class="card-text">{{ post.content }}</p>
-                
+
                 {% if post.type == 'ImagePost' %}
-                    <div class="alert alert-info p-1">📷 Resim İçeriği: {{ post.image_url }}</div>
+                <div class="alert alert-info p-1">📷 Resim İçeriği:
+                    <img src="{{ post.image_url }}" alt="{{ post.content }}">
+                </div>
                 {% elif post.type == 'VideoPost' %}
-                    <div class="alert alert-warning p-1">🎥 Video İçeriği ({{ post.duration }} sn)</div>
+                <div class="alert alert-warning p-1">🎥 Video İçeriği ({{ post.duration }} sn)</div>
                 {% endif %}
-                
+
                 <hr>
                 <div class="d-flex justify-content-between">
                     <span>❤️ {{ post.likes }} Beğeni</span>

@@ -38,6 +38,11 @@ class SocialPost:
         """Polimorfizm için base method"""
         return f"Post [{self.id}]: {self.content[:20]}..."
 
+    @property
+    def type(self):
+        """Template'de kullanılabilmesi için sınıf ismini döndür"""
+        return self.__class__.__name__
+
     def to_dict(self):
         # Kayıt için sözlüğe çevirme
         data = self.__dict__.copy()
