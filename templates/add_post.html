@@ -3,45 +3,74 @@
 {% block content %}
 <div class="row justify-content-center">
     <div class="col-md-6">
-        <div class="card">
-            <div class="card-header bg-primary text-white">Yeni Post Paylaş</div>
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Yeni Post Paylaş</h5>
+            </div>
             <div class="card-body">
-                <form action="/add_post" method="POST">
+                <form action="/add_post" method="POST" enctype="multipart/form-data">
                     
                     <div class="mb-3">
-                        <label>Hangi Hesap?</label>
+                        <label class="form-label fw-bold">Hangi Hesap?</label>
                         <select name="account_id" class="form-select">
                             {% for acc in accounts %}
-                            <option value="{{ acc.id }}">{{ acc.username }} - {{ acc.platform }}</option>
+                            <option value="{{ acc.id }}">{{ acc.username }} ({{ acc.platform }})</option>
                             {% endfor %}
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label>Platform</label>
+                        <label class="form-label fw-bold">Platform</label>
                         <input type="text" name="platform" class="form-control" value="Instagram">
                     </div>
 
                     <div class="mb-3">
-                        <label>Post Tipi</label>
+                        <label class="form-label fw-bold">Post Tipi</label>
                         <select name="type" class="form-select" id="postType">
                             <option value="text">Sadece Yazı</option>
-                            <option value="image">Resim</option>
-                            <option value="video">Video</option>
+                            <option value="image">Resim (Dosya veya Link)</option>
+                            <option value="video">Video (Dosya veya Link)</option>
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label>İçerik (Metin)</label>
-                        <textarea name="content" class="form-control" rows="3" required></textarea>
+                        <label class="form-label fw-bold">Açıklama / Metin</label>
+                        <textarea name="content" class="form-control" rows="3" required placeholder="Ne düşünüyorsun?"></textarea>
                     </div>
 
-                    <div class="mb-3" id="urlField" style="display:none;">
-                        <label>Medya URL (Resim/Video Linki)</label>
-                        <input type="text" name="image_url" class="form-control">
+                    <div id="imageField" style="display:none;" class="p-3 mb-3 border rounded bg-light">
+                        <label class="fw-bold text-primary mb-2">📷 Resim Ekleme Seçenekleri</label>
+                        
+                        <div class="mb-3">
+                            <label class="small text-muted">Seçenek 1: Bilgisayardan Yükle</label>
+                            <input type="file" name="image_file" class="form-control" accept="image/*">
+                        </div>
+                        
+                        <div class="text-center fw-bold text-muted my-1">- VEYA -</div>
+                        
+                        <div class="mb-1">
+                            <label class="small text-muted">Seçenek 2: İnternet Linki (URL) Yapıştır</label>
+                            <input type="text" name="image_url" class="form-control" placeholder="https://ornek.com/resim.jpg">
+                        </div>
                     </div>
 
-                    <button type="submit" class="btn btn-primary w-100">Paylaş</button>
+                    <div id="videoField" style="display:none;" class="p-3 mb-3 border rounded bg-light">
+                        <label class="fw-bold text-danger mb-2">🎥 Video Ekleme Seçenekleri</label>
+                        
+                        <div class="mb-3">
+                            <label class="small text-muted">Seçenek 1: Bilgisayardan Yükle</label>
+                            <input type="file" name="video_file" class="form-control" accept="video/*">
+                        </div>
+
+                        <div class="text-center fw-bold text-muted my-1">- VEYA -</div>
+                        
+                        <div class="mb-1">
+                            <label class="small text-muted">Seçenek 2: İnternet Linki (URL) Yapıştır</label>
+                            <input type="text" name="video_url" class="form-control" placeholder="https://ornek.com/video.mp4">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-success w-100 py-2">Paylaş</button>
                 </form>
             </div>
         </div>
@@ -49,13 +78,20 @@
 </div>
 
 <script>
-    // Basit JS: Resim/Video seçilirse URL kutusunu göster
     document.getElementById('postType').addEventListener('change', function() {
-        var field = document.getElementById('urlField');
-        if (this.value === 'text') {
-            field.style.display = 'none';
-        } else {
-            field.style.display = 'block';
+        var val = this.value;
+        var imgField = document.getElementById('imageField');
+        var vidField = document.getElementById('videoField');
+
+        // Önce hepsini gizle
+        imgField.style.display = 'none';
+        vidField.style.display = 'none';
+
+        // Seçime göre aç
+        if (val === 'image') {
+            imgField.style.display = 'block';
+        } else if (val === 'video') {
+            vidField.style.display = 'block';
         }
     });
 </script>

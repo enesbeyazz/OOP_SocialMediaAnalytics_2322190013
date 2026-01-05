@@ -1,1 +1,155 @@
-{}
+{
+    "accounts": [
+        {
+            "id": 2154558468992,
+            "username": "enes",
+            "platform": "Instagram",
+            "followers_count": 1,
+            "following_count": 0,
+            "posts": [
+                2154558470672,
+                2154558470000,
+                1390011916176,
+                2365043442048
+            ]
+        },
+        {
+            "id": 1390011920976,
+            "username": "hz.enes",
+            "platform": "Instagram",
+            "followers_count": 1432,
+            "following_count": 0,
+            "posts": []
+        },
+        {
+            "id": 1614326034064,
+            "username": "eness43",
+            "platform": "Twitter",
+            "followers_count": 1500,
+            "following_count": 0,
+            "posts": [
+                1614326036624,
+                1705548653712
+            ]
+        },
+        {
+            "id": 1705549073760,
+            "username": "crazy43",
+            "platform": "Facebook",
+            "followers_count": 123,
+            "following_count": 0,
+            "posts": [
+                1705549074976,
+                1686011019648,
+                2365043276560
+            ]
+        }
+    ],
+    "posts": [
+        {
+            "id": 2154558470672,
+            "account_id": 2154558468992,
+            "content": "wiki",
+            "platform": "Instagram",
+            "timestamp": "2026-01-05 22:26:57",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "image_url": "https://upload.wikimedia.org/wikipedia/tr/b/bc/Wiki.png",
+            "resolution": "1080p",
+            "type": "ImagePost"
+        },
+        {
+            "id": 2154558470000,
+            "account_id": 2154558468992,
+            "content": "bunny",
+            "platform": "Instagram",
+            "timestamp": "2026-01-05 22:40:59",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "video_url": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
+            "duration": 60,
+            "type": "VideoPost"
+        },
+        {
+            "id": 1390011916176,
+            "account_id": 2154558468992,
+            "content": "Bediüzzaman",
+            "platform": "Instagram",
+            "timestamp": "2026-01-05 22:55:41",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "image_url": "https://cdn.pixabay.com/photo/2019/10/28/16/20/bediuzzaman-4584853_1280.png",
+            "resolution": "1080p",
+            "type": "ImagePost"
+        },
+        {
+            "id": 1614326036624,
+            "account_id": 1614326034064,
+            "content": "Risale-i Nur",
+            "platform": "Twitter",
+            "timestamp": "2026-01-05 23:03:25",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "image_url": "https://upload.wikimedia.org/wikipedia/tr/8/8e/Risale-i_Nur_yaz%C4%B1s%C4%B1.png",
+            "resolution": "720p",
+            "type": "ImagePost"
+        },
+        {
+            "id": 1686011019648,
+            "account_id": 1705549073760,
+            "content": "Bediüzzaman ",
+            "platform": "Facebook",
+            "timestamp": "2026-01-05 23:25:39",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "image_url": "https://cdn.pixabay.com/photo/2019/10/28/16/20/bediuzzaman-4584853_1280.png",
+            "resolution": "1080p",
+            "type": "ImagePost"
+        },
+        {
+            "id": 2365043276560,
+            "account_id": 1705549073760,
+            "content": "Our amazing and beatiful world",
+            "platform": "Facebook",
+            "timestamp": "2026-01-05 23:37:48",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "video_url": "https://file-examples.com/storage/fe7ca4901d695c1049375c0/2017/04/file_example_MP4_480_1_5MG.mp4",
+            "duration": 60,
+            "type": "VideoPost"
+        },
+        {
+            "id": 2365043442048,
+            "account_id": 2154558468992,
+            "content": "child",
+            "platform": "Instagram",
+            "timestamp": "2026-01-05 23:38:57",
+            "likes": 0,
+            "comments": 0,
+            "shares": 0,
+            "impressions": 0,
+            "interactions": [],
+            "image_url": "https://w7.pngwing.com/pngs/521/757/png-transparent-child-children-in-a-circle-hand-photography-people-thumbnail.png",
+            "resolution": "1080p",
+            "type": "ImagePost"
+        }
+    ]
+}

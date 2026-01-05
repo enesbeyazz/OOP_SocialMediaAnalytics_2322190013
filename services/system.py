@@ -24,9 +24,9 @@ class SocialMediaAnalyticsSystem:
         if post_type == "text":
             new_post = TextPost(account_id, content, platform, kwargs.get('language', 'TR'))
         elif post_type == "image":
-            new_post = ImagePost(account_id, content, platform, kwargs.get('url'), kwargs.get('res'))
+            new_post = ImagePost(account_id, content, platform, kwargs.get('image_url'), kwargs.get('resolution'))
         elif post_type == "video":
-            new_post = VideoPost(account_id, content, platform, kwargs.get('url'), kwargs.get('dur'))
+            new_post = VideoPost(account_id, content, platform, kwargs.get('video_url'), kwargs.get('duration'))
         else:
             print("Hatalı post tipi!")
             return None
